@@ -202,10 +202,11 @@ void	right(t_var *var)
 	}
 	else if (var->matrix[var->y][var->x + 1] == 'C')
 	{
+		var->matrix[var->y][var->x + 1] = '0';
 		var->collect--;
-		var->x++;
 		//put image of player in x+1 * 50
 		event_render(var, "img/grass.xpm");
+		var->x++;
 		event_render(var, "img/player.xpm");
 		//put image of grass in x+1 * 50
 		//remove the collectable img
@@ -213,9 +214,9 @@ void	right(t_var *var)
 	else if (var->matrix[var->y][var->x + 1] == '0')
 	{
 		printf("value of x + 1 %d\n",var->x);
-		var->x++;
 		//put image of player in x-1 * 50
 		event_render(var, "img/grass.xpm");
+		var->x++;
 		event_render(var, "img/player.xpm");
 		//put image of GRass in x-1 * 50
 	}
@@ -229,10 +230,11 @@ void	left(t_var *var)
 	}
 	else if (var->matrix[var->y][var->x - 1] == 'C')
 	{
+		var->matrix[var->y][var->x - 1] = '0';
 		var->collect--;
-		var->x--;
 		//put image of player in x-1 * 50
 		event_render(var, "img/grass.xpm");
+		var->x--;
 		event_render(var, "img/player.xpm");
 		//put image of Grass in x-1 * 50
 	}
@@ -240,9 +242,9 @@ void	left(t_var *var)
 	{
 		//put image of player in x-1 * 50
 		event_render(var, "img/grass.xpm");
+		var->x--;
 		event_render(var, "img/player.xpm");
 		//put image of GRass in x-1 * 50
-		var->x--;
 	}
 }
 void	up(t_var *var)
@@ -254,18 +256,19 @@ void	up(t_var *var)
 	}
 	else if (var->matrix[var->y - 1][var->x] == 'C')
 	{
+		var->matrix[var->y - 1][var->x] = '0';
 		var->collect--;
-		var->y--;
 		//put image of player in y-1 * 50
 		event_render(var, "img/grass.xpm");
+		var->y--;
 		event_render(var, "img/player.xpm");
 		//put image of Grass in y-1 * 50
 	}
 	else if (var->matrix[var->y - 1][var->x] == '0')
 	{
-		var->y--;
 		//put image of player in y-1 * 50
 		event_render(var, "img/grass.xpm");
+		var->y--;
 		event_render(var, "img/player.xpm");
 		//put image of GRass in y-1 * 50
 	}
@@ -279,18 +282,19 @@ void	down(t_var *var)
 	}
 	else if (var->matrix[var->y + 1][var->x] == 'C')
 	{
+		var->matrix[var->y + 1][var->x] = '0';
 		var->collect--;
-		var->y++;
 		//put image of player in y+1 * 50
 		event_render(var, "img/grass.xpm");
+		var->y++;
 		event_render(var, "img/player.xpm");
 		//put image of Grass in y+1 * 50
 	}
 	else if (var->matrix[var->y + 1][var->x] == '0')
 	{
-		var->y++;
 		//put image of player in y+1 * 50
 		event_render(var, "img/grass.xpm");
+		var->y++;
 		event_render(var, "img/player.xpm");
 		//put image of GRass in y+1 * 50
 	}
