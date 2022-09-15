@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zhaddoum <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: zhaddoum <zhaddoum@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/23 12:04:50 by zhaddoum          #+#    #+#             */
-/*   Updated: 2021/12/04 17:26:22 by zhaddoum         ###   ########.fr       */
+/*   Updated: 2022/09/15 17:34:18 by zhaddoum         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include"libft.h"
 
-static int	cwords(const char *str, char c)
+static int	cwords(char *str, char c)
 {
 	int	words;
 	int	isc;
@@ -35,7 +35,7 @@ static int	cwords(const char *str, char c)
 	return (words);
 }
 
-static char	*split_word(const char *str, int start, int finish)
+static char	*split_word(char *str, int start, int finish)
 {
 	char	*word;
 	int		i;
@@ -48,7 +48,7 @@ static char	*split_word(const char *str, int start, int finish)
 	return (word);
 }
 
-static char	**split2(char **split, char const *s, char c)
+static char	**split2(char **split, char *s, char c)
 {
 	size_t	i;
 	size_t	j;
@@ -71,10 +71,11 @@ static char	**split2(char **split, char const *s, char c)
 		i++;
 	}
 	split[j] = 0;
+	free(s);
 	return (split);
 }
 
-char	**ft_split(char const *s, char c)
+char	**ft_split(char *s, char c)
 {
 	char	**split;
 

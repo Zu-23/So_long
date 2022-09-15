@@ -6,7 +6,7 @@
 /*   By: zhaddoum <zhaddoum@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/14 23:04:05 by zhaddoum          #+#    #+#             */
-/*   Updated: 2022/09/14 23:04:12 by zhaddoum         ###   ########.fr       */
+/*   Updated: 2022/09/15 14:47:59 by zhaddoum         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 #include "get_next_line/get_next_line.h"
 #include <mlx.h>
 #include "lib/libft.h"
+#include "ft_printf/ft_printf.h"
 
 typedef struct variables
 {

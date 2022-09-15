@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long_main.c                                     :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: zhaddoum <zhaddoum@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/14 23:04:37 by zhaddoum          #+#    #+#             */
-/*   Updated: 2022/09/14 23:04:48 by zhaddoum         ###   ########.fr       */
+/*   Updated: 2022/09/15 17:30:19 by zhaddoum         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,8 @@ int main(int argc, char **argv)
 {
 	t_var	var;
 
-	if (argc < 2 || ft_strstr(argv[1], ".ber") == NULL)
-		error_handler("Error: too few arguments or .ber map not found");
+	if (argc < 2 || argc > 2 || ft_strstr(argv[1], ".ber") == NULL)
+		error_handler("Error\nToo many or too few args or invalid map extension");
 	var.mlx_ptr = mlx_init();
 	map(&var, argv[1]);
 	var.mlx_win = mlx_new_window(var.mlx_ptr, var.width * 50, var.height * 50, "So-long");
@@ -33,4 +33,6 @@ int main(int argc, char **argv)
 	mlx_key_hook(var.mlx_win, events, &var);
 	mlx_hook(var.mlx_win, 17, 0, close_prog, &var);
 	mlx_loop(var.mlx_ptr);
+	system("leaks executablename") ;
+	while(1);
 }

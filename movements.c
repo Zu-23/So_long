@@ -6,14 +6,14 @@
 /*   By: zhaddoum <zhaddoum@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/14 22:10:58 by zhaddoum          #+#    #+#             */
-/*   Updated: 2022/09/14 23:05:13 by zhaddoum         ###   ########.fr       */
+/*   Updated: 2022/09/15 16:52:39 by zhaddoum         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 void	error_handler(char *str)
 {
-	perror(str);
+	ft_printf("%s",str);
 	exit(1);
 }
 

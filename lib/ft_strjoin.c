@@ -3,16 +3,21 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zhaddoum <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: zhaddoum <zhaddoum@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/18 11:05:05 by zhaddoum          #+#    #+#             */
-/*   Updated: 2021/11/23 12:10:09 by zhaddoum         ###   ########.fr       */
+/*   Updated: 2022/09/15 17:55:52 by zhaddoum         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+void	check_leak(char *str)
+{
+	if (str[0] != '\0')
+		free(str);
+}
 
-char	*ft_strjoin(char const *s1, char const *s2)
+char	*ft_strjoin(char *s1, char const *s2)
 {
 	size_t	i;
 	size_t	k;
@@ -35,5 +40,6 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	while (s2[k])
 		ptr[i++] = s2[k++];
 	ptr[i] = '\0';
+	check_leak(s1);
 	return (ptr);
 }
