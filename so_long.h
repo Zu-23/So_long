@@ -6,7 +6,7 @@
 /*   By: zhaddoum <zhaddoum@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/14 23:04:05 by zhaddoum          #+#    #+#             */
-/*   Updated: 2022/09/15 14:47:59 by zhaddoum         ###   ########.fr       */
+/*   Updated: 2022/09/15 19:35:25 by zhaddoum         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,12 +43,11 @@ typedef struct components
 	int	col;
 }t_comp;
 
-void	error_handler(char *str);
-int		close_prog(t_var *var);
+void	error_handler(char *str, char **matrix);
 
 /*		movements	*/
 void	event_render(t_var *var, char *str);
-void	open_exit(t_var *var);
+int		open_exit(t_var *var);
 int		events(int key, t_var *var);
 void	left(t_var *var);
 void	up(t_var *var);

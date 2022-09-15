@@ -6,7 +6,7 @@
 /*   By: zhaddoum <zhaddoum@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/14 22:52:37 by zhaddoum          #+#    #+#             */
-/*   Updated: 2022/09/14 23:05:05 by zhaddoum         ###   ########.fr       */
+/*   Updated: 2022/09/15 19:36:17 by zhaddoum         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ void	right(t_var *var)
 		var->x++;
 		event_render(var, "img/player.xpm");
 	}
-	else if (var->matrix[var->y][var->x + 1] == '0')
+	else if (var->matrix[var->y][var->x + 1] == '0' || var->matrix[var->y][var->x + 1] == 'P')
 	{
 		event_render(var, "img/grass.xpm");
 		var->x++;
@@ -39,7 +39,6 @@ void	left(t_var *var)
 {
 	if (var->matrix[var->y][var->x - 1] == 'E')
 	{
-		ft_printf("collect %d\n",var->collect);
 		if (var->collect <= 0)
 			open_exit(var);
 	}
@@ -51,7 +50,7 @@ void	left(t_var *var)
 		var->x--;
 		event_render(var, "img/player.xpm");
 	}
-	else if (var->matrix[var->y][var->x - 1] == '0')
+	else if (var->matrix[var->y][var->x - 1] == '0' || var->matrix[var->y][var->x - 1] == 'P')
 	{
 		event_render(var, "img/grass.xpm");
 		var->x--;
@@ -73,7 +72,7 @@ void	up(t_var *var)
 		var->y--;
 		event_render(var, "img/player.xpm");
 	}
-	else if (var->matrix[var->y - 1][var->x] == '0')
+	else if (var->matrix[var->y - 1][var->x] == '0' || var->matrix[var->y - 1][var->x] == 'P')
 	{
 		event_render(var, "img/grass.xpm");
 		var->y--;
@@ -95,7 +94,7 @@ void	down(t_var *var)
 		var->y++;
 		event_render(var, "img/player.xpm");
 	}
-	else if (var->matrix[var->y + 1][var->x] == '0')
+	else if (var->matrix[var->y + 1][var->x] == '0' || var->matrix[var->y + 1][var->x] == 'P')
 	{
 		event_render(var, "img/grass.xpm");
 		var->y++;

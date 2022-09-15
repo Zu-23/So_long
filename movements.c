@@ -6,14 +6,26 @@
 /*   By: zhaddoum <zhaddoum@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/14 22:10:58 by zhaddoum          #+#    #+#             */
-/*   Updated: 2022/09/15 16:52:39 by zhaddoum         ###   ########.fr       */
+/*   Updated: 2022/09/15 19:34:42 by zhaddoum         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
-void	error_handler(char *str)
+void	error_handler(char *str, char **matrix)
 {
-	ft_printf("%s",str);
+	int	i;
+
+	i = 0;
+	if (matrix != NULL)
+	{
+		while (matrix[i])
+		{
+			free(matrix[i]);
+			i++;
+		}
+	}
+	if (str != NULL)
+		ft_printf("%s",str);
 	exit(1);
 }
 
@@ -25,11 +37,11 @@ void	event_render(t_var *var, char *str)
 	mlx_put_image_to_window(var->mlx_ptr, var->mlx_win, var->img_ptr, var->x * 50, var->y * 50);
 }
 
-void	open_exit(t_var *var)
+int	open_exit(t_var *var)
 {
-	ft_printf("CONGRATULATION!!!");
 	mlx_destroy_window(var->mlx_ptr, var->mlx_win);
-	exit(1);
+	error_handler("CONGRATULATION!!!", var->matrix);
+	return (0);
 }
 
 int	events(int key, t_var *var)
@@ -47,11 +59,8 @@ int	events(int key, t_var *var)
 	else if (key == 53)
 	{
 		mlx_destroy_window(var->mlx_ptr, var->mlx_win);
-		exit(1);
+		error_handler(NULL, var->matrix);
 	}
-	else
-		error_handler("Wrong key!");
-
 	ft_printf("moves: %d\n", move++);
 	return (0);
 }
