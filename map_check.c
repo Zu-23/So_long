@@ -6,7 +6,7 @@
 /*   By: zhaddoum <zhaddoum@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/14 22:05:11 by zhaddoum          #+#    #+#             */
-/*   Updated: 2022/09/15 19:08:35 by zhaddoum         ###   ########.fr       */
+/*   Updated: 2022/09/16 15:43:20 by zhaddoum         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 void	components(char **matrix, int height)
 {
-	t_var var;
-	t_comp comp;
+	t_var	var;
+	t_comp	comp;
 
 	var.i = 0;
 	comp.p_e = 0;
@@ -36,31 +36,40 @@ void	components(char **matrix, int height)
 		var.i++;
 	}
 	if (comp.p_e != 2 || comp.col == 0)
-		error_handler("Error\ntoo many exists or players", matrix);
+		error_handler("Error\nWrong number of elements", matrix);
 }
 
 void	wall(char **matrix, int height)
 {
-	t_var var;
+	t_var	var;
+	int i;
+	int j;
 
 	var.k = height;
 	var.j = ft_strlen(matrix[0]);
 	var.i = 0;
-	while (height--)
+	i = 0;
+	while (matrix[i])
 	{
-		if (matrix[0][var.i] != '1' || matrix[var.k - 1][var.i] != '1')
-			error_handler("Error\nmap is not covered in walls", matrix);
-		else if (var.i < var.k)
-			if (matrix[var.i][0] != '1' || matrix[var.i][var.j - 1] != '1')
-				error_handler("Error\nmap is not covered in walls", matrix);
-		var.i++;
+		j = 0;
+		while (matrix[i][j])
+		{
+			if (matrix[0][j] != '1' || matrix[i][0] != '1' 
+				|| matrix[var.k - 1][j] != '1' || matrix[i][var.j - 1] != '1' )
+			{
+				ft_printf("Error\nNot enclosed with walls");
+				exit(1);
+			}
+			j++;
+		}
+		i++;
 	}
 	components(matrix, var.k);
 }
 
 void	map_is_rectangular(char **matrix, int height)
 {
-	t_var var;
+	t_var	var;
 
 	var.i = 0;
 	var.j = ft_strlen(matrix[0]);
@@ -77,11 +86,11 @@ void	map_is_rectangular(char **matrix, int height)
 	wall(matrix, var.k);
 }
 
-void    map(t_var *var, char *str)
+void	map(t_var *var, char *str)
 {
 	int		fd;
 	char	*line;
-	char 	*matrix_line;
+	char	*matrix_line;
 
 	fd = open(str, O_RDONLY);
 	line = get_next_line(fd);
@@ -98,7 +107,7 @@ void    map(t_var *var, char *str)
 		free(line);
 		line = get_next_line(fd);
 		if (line == NULL)
-			break;
+			break ;
 	}
 	free(line);
 	var->matrix = ft_split(matrix_line, '\n');

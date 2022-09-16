@@ -6,7 +6,7 @@
 /*   By: zhaddoum <zhaddoum@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/14 22:08:22 by zhaddoum          #+#    #+#             */
-/*   Updated: 2022/09/14 22:09:38 by zhaddoum         ###   ########.fr       */
+/*   Updated: 2022/09/15 21:07:26 by zhaddoum         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,8 @@ void	render_image(t_var *var, char *img)
 	int	h;
 
 	var->img_ptr = mlx_xpm_file_to_image(var->mlx_ptr, img, &w, &h);
-	mlx_put_image_to_window(var->mlx_ptr, var->mlx_win, var->img_ptr, var->j * 50, var->i * 50);
+	mlx_put_image_to_window(var->mlx_ptr, var->mlx_win, var->img_ptr,
+		var->j * 50, var->i * 50);
 }
 
 void	sprite_image(char tile, t_var *var)

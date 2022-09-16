@@ -6,11 +6,12 @@
 /*   By: zhaddoum <zhaddoum@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/18 11:05:05 by zhaddoum          #+#    #+#             */
-/*   Updated: 2022/09/15 17:55:52 by zhaddoum         ###   ########.fr       */
+/*   Updated: 2022/09/15 21:04:28 by zhaddoum         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
 void	check_leak(char *str)
 {
 	if (str[0] != '\0')

@@ -6,7 +6,7 @@
 #    By: zhaddoum <zhaddoum@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/14 23:31:23 by zhaddoum          #+#    #+#              #
-#    Updated: 2022/09/15 15:25:02 by zhaddoum         ###   ########.fr        #
+#    Updated: 2022/09/15 22:09:25 by zhaddoum         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,7 +33,7 @@ COMPILE=so_long
 
 all: $(NAME) $(COMPILE)
 
-$(NAME): $(OBJ)
+$(NAME): $(OBJ) $(HEADER)
 	$(AR) $(NAME) $(OBJ)
 
 %.o: %.c
